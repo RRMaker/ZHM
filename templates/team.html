@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Zebrafish GenetiX</h2>
+
+<div class="team-buttons">
+    <button class="team-btn" onclick="showBio('devank')">
+        <img src="{{ url_for('static', filename='images/Devank.JPG') }}" alt="Devank">
+    </button>
+
+    <button class="team-btn" onclick="showBio('rohan')">
+        <img src="{{ url_for('static', filename='images/Rohan.jpg') }}" alt="Rohan">
+    </button>
+
+    <button class="team-btn" onclick="showBio('gagan')">
+        <img src="{{ url_for('static', filename='images/Gagan.JPG') }}" alt="Gagan">
+    </button>
+</div>
+
+<!-- BIO CONTAINER -->
+<div class="bio-container">
+
+    <!-- General bio (default) -->
+    <div id="general-bio" class="team-bio active">
+        <p>
+            We are Zebrafish GenetiX, a team of 3 students from the University of North Texas 
+            who came together to solve a major problem in zebrafish hemostasis research. Recently, we
+            all joined the Texas Academy of Mathematics and Science @ UNT, an early-college program for high-schoolers,
+            which offers college-level courses, motivated UNT communities, and real science research opportunities.
+        </p>
+        <p>
+            Through this program, we got to know each other well and realized how serious the problems
+            in current zebrafish hemostasis research were. Combined with our complementary skills, 
+            that realization led us to form this team. <strong>(Click the images)</strong>
+        </p>
+    </div>
+
+    <!-- Devank -->
+    <div id="devank" class="team-bio">
+        <p>
+            <strong>Devank</strong> is the biological brains of the project. He brings extensive experience
+            in zebrafish hemostasis assays from his research under Pudur Jagadeeswaran at UNT.
+            His role ensures the solution is practical and works as planned for real labs.
+        </p>
+
+        <p style="margin-top: 18px;"><strong>3 Fun Facts:</strong></p>
+
+        <p>
+            <strong>1.</strong> He's worked on this project so much that he's started dreaming about zebrafish —
+            he can't look at an aquarium without thinking about them.
+        </p>
+        <p>
+           <strong>2.</strong> Playing guitar is his mental reset button. It's his best way to wind down 
+           after hours of studying for calculus and anatomy tests.
+        </p>
+        <p>
+           <strong>3.</strong> He's a huge theater fan! He loves watching movies repeatedly 
+           and seeing things he didn't see before.
+        </p>
+    </div>
+
+    <!-- Rohan -->
+    <div id="rohan" class="team-bio">
+        <p>
+            <strong>Rohan</strong> oversees the business and strategic components of the project. He previously
+            founded a four-figure social sports startup and won multiple national business
+            competitions, shaping the mission, design, and market potential.
+        </p>
+
+        <p style="margin-top: 18px;"><strong>3 Fun Facts:</strong></p>
+
+        <p><strong>1.</strong> Pokemon TCG Pocket has been his most played game. He mainly like trading cards with other people,
+           and even joins Facebook groups dedicated to trading cards. He prefer physical ones, 
+           but they're very hard for him to get.
+        </p>
+
+        <p><strong>2.</strong> He's a foodie at heart! He loves walking to random places with friends
+            and trying new foods, going out with his family to a classic restaurant, getting together for
+            a special occasion, or just ordering takeout.
+        </p>
+
+        <p><strong>3.</strong> He's not a huge vacation person. Contrary to the general public, he would rather stay
+            in his area and do fun things with the people around him rather than go to extravagant places
+            and take Instagram photos.
+        </p>
+    </div>
+
+    <!-- Gagan -->
+    <div id="gagan" class="team-bio">
+        <p>
+            <strong>Gagan</strong> is the engineer of the group. Drawing from physics simulation research and
+            advanced coding projects, he built the website and machine learning segmentation
+            model that powers the innovation.
+        </p>
+
+        <p style="margin-top: 18px;"><strong>3 Fun Facts:</strong></p>
+
+        <p><strong>1.</strong> He usually keeps a Rubik's Cube at his desk to fidget with while working on something. 
+           Like Devank's guitar, it's his personal mental reset device. He particularly likes focusing 
+           on the patterns.
+        </p>
+        <p><strong>2.</strong> He enjoys heading out on clear nights and seeing which constellations he can identify
+            by memory alone. It's a peaceful passtime that connects to his love of astronomy.
+        </p>
+        <p><strong>3.</strong> Soccer is his favorite sport, as it keeps him very active. The focus, teamwork, and social
+           time he gets from it is really rewarding to him. He loves a good match with friends.
+        </p>
+    </div>
+
+</div>
+
+<!-- JS -->
+<script>
+function showBio(id) {
+    const bios = document.querySelectorAll('.team-bio');
+    const target = document.getElementById(id);
+    const general = document.getElementById('general-bio');
+
+    // Clicking the active bio returns to general
+    if (target.classList.contains('active')) {
+        bios.forEach(bio => bio.classList.remove('active'));
+        general.classList.add('active');
+        return;
+    }
+
+    bios.forEach(bio => bio.classList.remove('active'));
+    target.classList.add('active');
+}
+</script>
+
+{% endblock %}

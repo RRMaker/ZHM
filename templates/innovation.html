@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Our Innovation</h2>
+<div class="section-text">
+    <div class="innovation-images">
+        <div class="innovation-image-box">
+            <img src="{{ url_for('static', filename='ZHMN.png') }}" alt="Zebrafish assay">
+        </div>
+    </div>
+    <p>
+    Zebrafish Hemostasis Mapper (ZHM) is a computer-vision-based system to automatically trace
+    zebrafish in zebrafish bleeding assays, enabling faster and more objective analysis. It is
+    designed to be used for academic research laboratories conducting hemostasis, thrombosis, 
+    and blood-related research using zebrafish models, as well as pharmaceutical and biotech companies.
+    </p>
+    <div class="innovation-images">
+        <div class="innovation-image-box">
+            <img src="{{ url_for('static', filename='images/ZHM1.png') }}" alt="Zebrafish assay">
+        </div>
+        <div class="innovation-image-box">
+            <img src="{{ url_for('static', filename='images/ZHM2.png') }}" alt="Traced zebrafish outline">
+        </div>
+    </div>    
+    <p>
+    Zebrafish are widely used for studying hemostasis, thrombosis, and vascular biology due to their 
+    genetic similarity to humans. One of the common and most necessary steps is tracing an outline around
+    the entire zebrafish after cutting it and letting it bleed out. Due to the limitations of current imaging software, 
+    this is extremely time consuming, as researchers and companies must manually trace the outline with a computer mouse.
+    </p>
+    <div class="innovation-images">
+        <div class="innovation-image-box">
+            <img src="{{ url_for('static', filename='images/ZHM3.png') }}" alt="Zebrafish assay">
+        </div>
+    </div>
+    <p>
+    In addition, this leads to minor inconsistencies in the outlining, which can heavily affect research and company operations.
+    Due to current software limitations and heavy consequences, we decided to make ZHM, an application which solves these problems
+    and allows research laboratories and companies to dramatically increase there efficiency.   
+    </p>
+    <div class="innovation-media">
+        <div class="innovation-media-inner">
+            <img 
+                src="{{ url_for('static', filename='images/zpen.png') }}" 
+                alt="ZHM Pen"
+                class="innovation-pen"
+            >
+        </div>
+    </div>
+    <p>
+        ZHM works by analyzing images of zebrafish assays and automatically identifying the outline of the fish 
+        based on visual differences between the fish and the background. Instead of requiring a researcher to 
+        manually trace the outline using a mouse, the system detects color, brightness, and shape patterns in 
+        the image to determine where the zebrafish begins and ends. Once the outline is identified, the system 
+        traces it consistently and outputs a clean boundary that can be used for measurement and comparison. 
+        This process produces faster, more consistent results while removing 
+        much of the subjectivity and variability that comes with manual tracing.
+    </p>
+</div>
+{% endblock %}

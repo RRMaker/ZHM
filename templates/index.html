@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="upload-heading">Upload Zebrafish Image</h2>
+
+<form method="POST" enctype="multipart/form-data" class="upload-form">
+
+    <!-- SINGLE file input -->
+    <input
+        id="image-input"
+        type="file"
+        name="image"
+        accept="image/*"
+        hidden
+        required
+        onchange="previewImage(event)"
+    >
+
+    <!-- Upload card -->
+    <div class="upload-card" onclick="document.getElementById('image-input').click()">
+
+        <!-- Placeholder -->
+        <div id="upload-placeholder">
+            <div class="upload-icon">⬆</div>
+            <div class="upload-text">Click to upload zebrafish image</div>
+        </div>
+
+        <!-- Preview -->
+        <img
+            id="upload-preview"
+            style="display:none; max-height: 220px; border-radius: 12px;"
+        >
+
+    </div>
+
+    <!-- SUBMIT BUTTON INSIDE FORM -->
+    <button type="submit" class="trace-btn">
+        Trace Area
+    </button>
+
+</form>
+
+{% if output_image %}
+    <h3 class="output-heading">Traced Output</h3>
+    <img
+        src="{{ url_for('static', filename='outputs/' + output_image) }}"
+        class="output-image"
+    >
+{% endif %}
+
+<script>
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const preview = document.getElementById("upload-preview");
+    const placeholder = document.getElementById("upload-placeholder");
+
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+    placeholder.style.display = "none";
+}
+</script>
+
+{% endblock %}
+
