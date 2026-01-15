@@ -7,7 +7,6 @@ except Exception as e:
     print("CV2 IMPORT FAILED:", e)
 
 from flask import Flask, render_template, request
-import cv2
 import numpy as np
 import os
 import uuid
